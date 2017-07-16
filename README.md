@@ -102,7 +102,7 @@ end
 
 This is a basic migration that will create a `posts` table that will have title and description columns, along with the built in timestamps. [For a refresher on migrations, see this documentation](http://edgeguides.rubyonrails.org/active_record_migrations.html). This migration follows the standard naming convention. When you want to create a table, the migration's class name should reflect that; hence, `CreatePosts`. This is then reiterated by the `:posts` argument passed to the `create_table` method. The filename itself needs to be unique, and when you generate a migration automatically through a model or scaffold generator you will notice that the migration file name is prepended with a timestamp value to make sure there are no duplicate migration files.
 
-After running `rake db:migrate` we can see that our `db/schema.rb` file has been updated with our new posts table. However, if we run our tests again we will still see them failing due to the same error: ``undefined method `create!' for Post:Class``. This is because we left out one very important piece of code from the `Post` model. In order to leverage built-in methods such as `.create!`, we need to have the Post class inherit from `ActiveRecord::Base`. Update the `post.rb` model file to match the following:
+After running `rake db:create` we can see that our `db/schema.rb` file has been updated with our new posts table. However, if we run our tests again we will still see them failing due to the same error: ``undefined method `create!' for Post:Class``. This is because we left out one very important piece of code from the `Post` model. In order to leverage built-in methods such as `.create!`, we need to have the Post class inherit from `ActiveRecord::Base`. Update the `post.rb` model file to match the following:
 ```ruby
 class Post < ActiveRecord::Base
 end
@@ -170,3 +170,5 @@ Being able to work in different environments is one of the strong points of Rail
 We covered quite a bit of material in this lesson. You should now have a firm understanding of Active Record models in Rails. Active Record is a powerful tool that enables developers to focus on the logic of their applications while streamlining processes such as connecting to the database, running queries, and much more.
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/rails-activerecord-models-and-rails-readme'>Active Record Models and Rails</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/rails-activerecord-models-and-rails-readme'>ActiveRecord Models and Rails</a> on Learn.co and start learning to code for free.</p>
